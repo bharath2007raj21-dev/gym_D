@@ -1,30 +1,3 @@
-# import streamlit as st
-# from google import genai
-
-# st.title("💪 The D Gym")
-
-# members = [
-#     {"name": "Ravi", "paid": True, "goal": "weight loss"},
-#     {"name": "Kumar", "paid": False, "goal": "muscle gain"},
-#     {"name": "Priya", "paid": True, "goal": "fitness"},
-#     {"name": "Anjali", "paid": False, "goal": "weight loss"},
-#     {"name": "Rahul", "paid": True, "goal": "muscle gain"},
-#     {"name": "Sneha", "paid": False, "goal": "fitness"},
-#     {"name": "Amit", "paid": True, "goal": "weight loss"},
-#     {"name": "Neha", "paid": False, "goal": "muscle gain"},
-#     {"name": "Vikram", "paid": True, "goal": "fitness"},
-#     {"name": "Sonal", "paid": False, "goal": "weight loss"}
-# ]
-
-# question = st.text_input("Ask about your gym members:")
-
-# if question:
-#     client = genai.Client(api_key="i past my key ")
-#     response = client.models.generate_content(
-#         model="gemini-2.5-flash",
-#         contents=f"You are a gym assistant. Member data: {members}. Question: {question}"
-#     )
-#     st.write(response.text)
 
 import streamlit as st
 from google import genai
@@ -54,7 +27,7 @@ question = st.text_input("🔍 Ask about your gym members:")
 
 if question:
     with st.spinner("Thinking..."):
-        client = genai.Client(api_key="YOUR_KEY_HERE")
+       client = genai.Client(api_key=st.secrets["GOOGLE_API_KEY"])
         response = client.models.generate_content(
             model="gemini-2.5-flash",
             contents=f"You are a gym assistant. Member data: {members}. Answer briefly and clearly: {question}"

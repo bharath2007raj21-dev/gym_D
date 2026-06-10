@@ -27,7 +27,7 @@ question = st.text_input("🔍 Ask about your gym members:")
 
 if question:
     with st.spinner("Thinking..."):
-       client = genai.Client(api_key=st.secrets["GOOGLE_API_KEY"])
+        client = genai.Client(api_key="YOUR_KEY_HERE")
         response = client.models.generate_content(
             model="gemini-2.5-flash",
             contents=f"You are a gym assistant. Member data: {members}. Answer briefly and clearly: {question}"
